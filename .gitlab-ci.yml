@@ -1,0 +1,14 @@
+# Solo para GitLab Pages (GitHub Pages no usa este archivo).
+# Copia la web a la carpeta "public", que es la que publica GitLab.
+image: alpine:latest
+pages:
+  stage: deploy
+  script:
+    - mkdir -p .public
+    - cp -r index.html 404.html assets favicon.ico favicon.svg apple-touch-icon.png icon-192.png icon-512.png og-image.jpg site.webmanifest robots.txt sitemap.xml .public/
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
