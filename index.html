@@ -87,6 +87,21 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 h1{font-family:var(--f-display);font-weight:700;font-size:clamp(44px,7vw,84px);line-height:.95;letter-spacing:-.01em;margin:0 0 20px;text-wrap:balance}
 .lead{font-size:clamp(17px,1.6vw,20px);max-width:58ch;margin:0 0 26px;color:var(--fg)}
 .cta{display:flex;flex-wrap:wrap;gap:10px}
+/* CV downloads */
+.cvdl{margin-top:44px}
+.cvdl h3{margin:0 0 4px}
+.cvdl .intro{margin:4px 0 20px}
+.cvgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.cvgrid{grid-template-columns:1fr}}
+.cvcard{border:1.5px solid var(--line);background:var(--panel);border-radius:var(--r);padding:16px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start}
+.cvcard img{width:96px;height:auto;aspect-ratio:240/320;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:3px;background:#fff;display:block;max-width:100%}
+.cvmeta{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cvtag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.cvmeta h4{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.15;margin:0}
+.cvmeta p{margin:0;font-size:14px;color:var(--muted)}
+.cvbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.cvbtns .btn{padding:7px 14px;font-size:14px}
+.cvbtns .btn small{font-family:var(--f-mono);font-size:11px;font-weight:500;opacity:.75}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--fg);color:var(--fg);background:transparent;cursor:pointer;font-family:var(--f-body)}
 .btn.primary{background:var(--fg);color:var(--bg)}
 .btn:hover{border-color:var(--accent)}
@@ -1038,12 +1053,22 @@ section.sheet#ai-progress{background:linear-gradient(180deg,rgba(10,15,21,.55) 0
       <div class="contact" style="margin-top:22px">
         <div>
           <p class="lead" data-t="contact_lead">Available for new projects as Mechanical Construction Manager, Construction Manager or Project Manager, in Spain or abroad, as employee or independent contractor.</p>
-          <div class="cta"><a class="btn primary li-link" href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/" target="_blank" rel="noopener" data-t="cta_li">Message me on LinkedIn</a></div>
+          <div class="cta"><a class="btn primary li-link" href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/" target="_blank" rel="noopener" data-t="cta_li">Message me on LinkedIn</a><a class="btn" href="#cv" data-t="cta_cv">Download CV</a></div>
         </div>
         <div class="cbox">
           <div class="crow"><span>LinkedIn</span><div class="val"><a class="li-link" href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/" target="_blank" rel="noopener">linkedin.com/in/ngarcia-mechanical-construction-manager</a></div></div>
           <div class="crow"><span data-t="phone">Phone</span><div class="val"><span id="phone">+34 627 225 615</span><button type="button" class="copy" id="copy-phone" data-t="copy">Copy</button></div></div>
           <div class="crow"><span data-t="tb_base">Base</span><div class="val" data-t="tb_base_v">Valencia, Spain</div></div>
+        </div>
+      </div>
+      <div class="cvdl" id="cv">
+        <h3 data-t="cv_h">Download my CV</h3>
+        <p class="intro" data-t="cv_lead">Four versions of the same record. ATS versions are single-column and readable by applicant tracking systems; the designed versions are for reading.</p>
+        <div class="cvgrid">
+          <article class="cvcard"><img src="cv/thumb-mcm-ats.webp" alt="" width="96" height="128" loading="lazy" decoding="async"><div class="cvmeta"><span class="cvtag" data-t="cv_ats">ATS</span><h4>Mechanical Construction Manager</h4><p data-t="cv1_d">Full career record, 34 projects, data and AI tools.</p><div class="cvbtns"><a class="btn primary" href="cv/Nestor-Garcia-CV-MCM-ATS.pdf" download="Nestor-Garcia-CV-MCM-ATS.pdf">PDF <small>286 KB</small></a><a class="btn" href="cv/Nestor-Garcia-CV-MCM-ATS.docx" download="Nestor-Garcia-CV-MCM-ATS.docx">Word <small>21 KB</small></a></div></div></article>
+          <article class="cvcard"><img src="cv/thumb-package-manager-ats.webp" alt="" width="96" height="128" loading="lazy" decoding="async"><div class="cvmeta"><span class="cvtag" data-t="cv_ats">ATS</span><h4>Mechanical Package Manager</h4><p data-t="cv2_d">Package-manager focus for data centre and mission-critical roles.</p><div class="cvbtns"><a class="btn primary" href="cv/Nestor-Garcia-CV-Package-Manager-ATS.pdf" download="Nestor-Garcia-CV-Package-Manager-ATS.pdf">PDF <small>288 KB</small></a><a class="btn" href="cv/Nestor-Garcia-CV-Package-Manager-ATS.docx" download="Nestor-Garcia-CV-Package-Manager-ATS.docx">Word <small>11 KB</small></a></div></div></article>
+          <article class="cvcard"><img src="cv/thumb-designed.webp" alt="" width="96" height="128" loading="lazy" decoding="async"><div class="cvmeta"><span class="cvtag" data-t="cv_design">Designed</span><h4>Designed CV</h4><p data-t="cv3_d">Visual CV with key figures, experience and skills.</p><div class="cvbtns"><a class="btn primary" href="cv/Nestor-Garcia-CV-Designed.pdf" download="Nestor-Garcia-CV-Designed.pdf">PDF <small>1.1 MB</small></a></div></div></article>
+          <article class="cvcard"><img src="cv/thumb-blueprint.webp" alt="" width="96" height="128" loading="lazy" decoding="async"><div class="cvmeta"><span class="cvtag" data-t="cv_design">Designed</span><h4>Blueprint CV</h4><p data-t="cv4_d">Blueprint-style CV with project highlights and career analytics.</p><div class="cvbtns"><a class="btn primary" href="cv/Nestor-Garcia-CV-Blueprint.pdf" download="Nestor-Garcia-CV-Blueprint.pdf">PDF <small>4.2 MB</small></a></div></div></article>
         </div>
       </div>
     </div>
@@ -1077,6 +1102,7 @@ s5:"Capabilities",s5i:"Share of all projects that included each scope, material 
 s6:"Clients and employers",s6i:"Plant owners I have built for, sized by net years, and the companies that hired me.",employers:"Employers and contracting companies",th_company:"Company",th_role:"Highest role",th_period:"Period",th_proj:"Projects",th_years:"Years",
 s7:"Project archive",s7i:"All projects, newest first. Open a row to read the scope.",search:"Search client, plant, city…",all:"All",shown:"shown",
 s8:"Contact",contact_lead:"Available for new projects as Mechanical Construction Manager, Construction Manager or Project Manager, in Spain or abroad, as employee or independent contractor.",cta_li:"Message me on LinkedIn",phone:"Phone",copy:"Copy",copied:"Copied",
+cta_cv:"Download CV",cv_h:"Download my CV",cv_lead:"Four versions of the same record. ATS versions are single-column and readable by applicant tracking systems; the designed versions are for reading.",cv1_d:"Full career record, 34 projects, data and AI tools.",cv2_d:"Package-manager focus for data centre and mission-critical roles.",cv3_d:"Visual CV with key figures, experience and skills.",cv4_d:"Blueprint-style CV with project highlights and career analytics.",cv_ats:"ATS",cv_design:"Designed",
 footer:"Figures computed from my Career Analytics project database (Nov 2026). Years are net and do not overlap between projects.",
 yrs:"yrs",yr:"yr",project1:"project",country1:"country",proj:"proj.",projects:"projects",countries:"countries",years_net:"net years",
 for:"for",eng:"Engineering",role:"Role",type:"Type",warranty:"Package warranty signed",
@@ -1098,6 +1124,7 @@ s5:"Capacidades",s5i:"Porcentaje de proyectos que incluyeron cada alcance, mater
 s6:"Clientes y empresas",s6i:"Propietarios de planta para los que he trabajado, por tamaño según años netos, y las empresas que me contrataron.",employers:"Empresas contratantes",th_company:"Empresa",th_role:"Puesto más alto",th_period:"Periodo",th_proj:"Proyectos",th_years:"Años",
 s7:"Archivo de proyectos",s7i:"Todos los proyectos, del más reciente al más antiguo. Abre una fila para leer el alcance (en inglés).",search:"Buscar cliente, planta, ciudad…",all:"Todos",shown:"mostrados",
 s8:"Contacto",contact_lead:"Disponible para nuevos proyectos como Mechanical Construction Manager, Construction Manager o Project Manager, en España o en el extranjero, por cuenta ajena o como autónomo.",cta_li:"Escríbeme por LinkedIn",phone:"Teléfono",copy:"Copiar",copied:"Copiado",
+cta_cv:"Descargar CV",cv_h:"Descarga mi CV",cv_lead:"Cuatro versiones del mismo historial. Las versiones ATS son de una columna y legibles por los sistemas de selección; las diseñadas son para leer.",cv1_d:"Historial completo, 34 proyectos, datos y herramientas de IA.",cv2_d:"Enfoque de package manager para centros de datos y proyectos de misión crítica.",cv3_d:"CV visual con cifras clave, experiencia y competencias.",cv4_d:"CV estilo plano con proyectos destacados y analítica de carrera.",cv_ats:"ATS",cv_design:"Diseñado",
 footer:"Cifras calculadas desde mi base de datos de proyectos Career Analytics (nov 2026). Los años son netos y no se solapan entre proyectos.",
 yrs:"años",yr:"año",project1:"proyecto",country1:"país",proj:"proy.",projects:"proyectos",countries:"países",years_net:"años netos",
 for:"para",eng:"Ingeniería",role:"Puesto",type:"Tipo",warranty:"Garantía de paquete firmada",
@@ -1175,6 +1202,7 @@ s5:"Compétences",s5i:"Part des projets ayant inclus chaque périmètre, matéri
 s6:"Clients et employeurs",s6i:"Propriétaires d'usine pour lesquels j'ai travaillé, par taille selon les années nettes, et les entreprises qui m'ont engagé.",employers:"Employeurs et entreprises contractantes",th_company:"Entreprise",th_role:"Poste le plus élevé",th_period:"Période",th_proj:"Projets",th_years:"Années",
 s7:"Archives des projets",s7i:"Tous les projets, du plus récent au plus ancien. Ouvrez une ligne pour lire le périmètre (en anglais).",search:"Rechercher client, usine, ville…",all:"Tous",shown:"affichés",
 s8:"Contact",contact_lead:"Disponible pour de nouveaux projets comme Mechanical Construction Manager, Construction Manager ou Project Manager, en Espagne ou à l'étranger, en salarié ou en indépendant.",cta_li:"Écrivez-moi sur LinkedIn",phone:"Téléphone",copy:"Copier",copied:"Copié",
+cta_cv:"Télécharger le CV",cv_h:"Télécharger mon CV",cv_lead:"Quatre versions du même parcours. Les versions ATS sont sur une colonne et lisibles par les logiciels de recrutement ; les versions mises en page sont faites pour la lecture.",cv1_d:"Parcours complet, 34 projets, données et outils d'IA.",cv2_d:"Orientation package manager pour data centers et projets critiques.",cv3_d:"CV visuel avec chiffres clés, expérience et compétences.",cv4_d:"CV style plan avec projets phares et analyse de carrière.",cv_ats:"ATS",cv_design:"Mis en page",
 footer:"Chiffres calculés à partir de ma base de données de projets Career Analytics (nov. 2026). Les années sont nettes et ne se chevauchent pas entre projets.",
 yrs:"ans",yr:"an",project1:"projet",country1:"pays",proj:"proj.",projects:"projets",countries:"pays",years_net:"années nettes",
 for:"pour",eng:"Ingénierie",role:"Poste",type:"Type",warranty:"Garantie de lot signée",cat_Scope:"Périmètre",cat_Material:"Matériaux",cat_System:"Systèmes"},
@@ -1196,6 +1224,7 @@ s5:"Competências",s5i:"Percentagem de projetos que incluíram cada âmbito, mat
 s6:"Clientes e empregadores",s6i:"Proprietários de instalações para quem trabalhei, por tamanho segundo os anos líquidos, e as empresas que me contrataram.",employers:"Empregadores e empresas contratantes",th_company:"Empresa",th_role:"Função mais alta",th_period:"Período",th_proj:"Projetos",th_years:"Anos",
 s7:"Arquivo de projetos",s7i:"Todos os projetos, do mais recente ao mais antigo. Abra uma linha para ler o âmbito (em inglês).",search:"Pesquisar cliente, instalação, cidade…",all:"Todos",shown:"mostrados",
 s8:"Contacto",contact_lead:"Disponível para novos projetos como Mechanical Construction Manager, Construction Manager ou Project Manager, em Espanha ou no estrangeiro, por conta de outrem ou como independente.",cta_li:"Escreva-me no LinkedIn",phone:"Telefone",copy:"Copiar",copied:"Copiado",
+cta_cv:"Descarregar CV",cv_h:"Descarregue o meu CV",cv_lead:"Quatro versões do mesmo percurso. As versões ATS têm uma coluna e são legíveis pelos sistemas de recrutamento; as versões com design são para leitura.",cv1_d:"Percurso completo, 34 projetos, dados e ferramentas de IA.",cv2_d:"Foco em package manager para data centers e projetos de missão crítica.",cv3_d:"CV visual com números-chave, experiência e competências.",cv4_d:"CV em estilo planta com projetos de destaque e análise de carreira.",cv_ats:"ATS",cv_design:"Com design",
 footer:"Números calculados a partir da minha base de dados de projetos Career Analytics (nov. 2026). Os anos são líquidos e não se sobrepõem entre projetos.",
 yrs:"anos",yr:"ano",project1:"projeto",country1:"país",proj:"proj.",projects:"projetos",countries:"países",years_net:"anos líquidos",
 for:"para",eng:"Engenharia",role:"Função",type:"Tipo",warranty:"Garantia de pacote assinada",cat_Scope:"Âmbito",cat_Material:"Materiais",cat_System:"Sistemas"},
@@ -1217,6 +1246,7 @@ s5:"Competenze",s5i:"Quota dei progetti che hanno incluso ciascun ambito, materi
 s6:"Clienti e datori di lavoro",s6i:"Proprietari di impianto per cui ho lavorato, per dimensione secondo gli anni netti, e le aziende che mi hanno assunto.",employers:"Datori di lavoro e aziende appaltatrici",th_company:"Azienda",th_role:"Ruolo più alto",th_period:"Periodo",th_proj:"Progetti",th_years:"Anni",
 s7:"Archivio progetti",s7i:"Tutti i progetti, dal più recente al più vecchio. Apri una riga per leggere l'ambito (in inglese).",search:"Cerca cliente, impianto, città…",all:"Tutti",shown:"mostrati",
 s8:"Contatti",contact_lead:"Disponibile per nuovi progetti come Mechanical Construction Manager, Construction Manager o Project Manager, in Spagna o all'estero, come dipendente o libero professionista.",cta_li:"Scrivimi su LinkedIn",phone:"Telefono",copy:"Copia",copied:"Copiato",
+cta_cv:"Scarica il CV",cv_h:"Scarica il mio CV",cv_lead:"Quattro versioni dello stesso percorso. Le versioni ATS sono a colonna singola e leggibili dai sistemi di selezione; quelle grafiche sono pensate per la lettura.",cv1_d:"Percorso completo, 34 progetti, dati e strumenti di IA.",cv2_d:"Focus da package manager per data center e progetti mission-critical.",cv3_d:"CV grafico con cifre chiave, esperienza e competenze.",cv4_d:"CV in stile disegno tecnico con progetti principali e analisi della carriera.",cv_ats:"ATS",cv_design:"Grafico",
 footer:"Cifre calcolate dal mio database di progetti Career Analytics (nov. 2026). Gli anni sono netti e non si sovrappongono tra progetti.",
 yrs:"anni",yr:"anno",project1:"progetto",country1:"paese",proj:"prog.",projects:"progetti",countries:"paesi",years_net:"anni netti",
 for:"per",eng:"Ingegneria",role:"Ruolo",type:"Tipo",warranty:"Garanzia di package firmata",cat_Scope:"Ambito",cat_Material:"Materiali",cat_System:"Sistemi"},
@@ -1238,6 +1268,7 @@ s5:"Kompetenser",s5i:"Andel av alla projekt som omfattade respektive omfattning,
 s6:"Kunder och arbetsgivare",s6i:"Anläggningsägare jag har byggt för, storlek efter nettoår, och företagen som anlitade mig.",employers:"Arbetsgivare och uppdragsgivare",th_company:"Företag",th_role:"Högsta roll",th_period:"Period",th_proj:"Projekt",th_years:"År",
 s7:"Projektarkiv",s7i:"Alla projekt, nyast först. Öppna en rad för att läsa omfattningen (på engelska).",search:"Sök kund, anläggning, stad…",all:"Alla",shown:"visas",
 s8:"Kontakt",contact_lead:"Tillgänglig för nya projekt som Mechanical Construction Manager, Construction Manager eller Project Manager, i Spanien eller utomlands, som anställd eller konsult.",cta_li:"Skriv till mig på LinkedIn",phone:"Telefon",copy:"Kopiera",copied:"Kopierat",
+cta_cv:"Ladda ner CV",cv_h:"Ladda ner mitt CV",cv_lead:"Fyra versioner av samma meritförteckning. ATS-versionerna har en kolumn och kan läsas av rekryteringssystem; de formgivna versionerna är gjorda för att läsas.",cv1_d:"Hela karriären, 34 projekt, data- och AI-verktyg.",cv2_d:"Fokus på package management för datacenter och verksamhetskritiska projekt.",cv3_d:"Visuellt CV med nyckeltal, erfarenhet och kompetenser.",cv4_d:"CV i ritningsstil med utvalda projekt och karriäranalys.",cv_ats:"ATS",cv_design:"Formgiven",
 footer:"Siffrorna är beräknade från min projektdatabas Career Analytics (nov 2026). Åren är nettoår och överlappar inte mellan projekt.",
 yrs:"år",yr:"år",project1:"projekt",country1:"land",proj:"proj.",projects:"projekt",countries:"länder",years_net:"nettoår",
 for:"för",eng:"Projektering",role:"Roll",type:"Typ",warranty:"Undertecknad paketgaranti",cat_Scope:"Omfattning",cat_Material:"Material",cat_System:"System"},
@@ -1259,6 +1290,7 @@ s5:"Kompetanse",s5i:"Andel av alle prosjekter som omfattet hvert omfang, materia
 s6:"Kunder og arbeidsgivere",s6i:"Anleggseiere jeg har bygget for, størrelse etter nettoår, og selskapene som ansatte meg.",employers:"Arbeidsgivere og oppdragsgivere",th_company:"Selskap",th_role:"Høyeste rolle",th_period:"Periode",th_proj:"Prosjekter",th_years:"År",
 s7:"Prosjektarkiv",s7i:"Alle prosjekter, nyeste først. Åpne en rad for å lese omfanget (på engelsk).",search:"Søk kunde, anlegg, by…",all:"Alle",shown:"vises",
 s8:"Kontakt",contact_lead:"Tilgjengelig for nye prosjekter som Mechanical Construction Manager, Construction Manager eller Project Manager, i Spania eller i utlandet, som ansatt eller selvstendig konsulent.",cta_li:"Skriv til meg på LinkedIn",phone:"Telefon",copy:"Kopier",copied:"Kopiert",
+cta_cv:"Last ned CV",cv_h:"Last ned CV-en min",cv_lead:"Fire versjoner av samme CV. ATS-versjonene har én kolonne og kan leses av rekrutteringssystemer; de designede versjonene er laget for å leses.",cv1_d:"Hele karrieren, 34 prosjekter, data- og AI-verktøy.",cv2_d:"Fokus på package management for datasentre og forretningskritiske prosjekter.",cv3_d:"Visuell CV med nøkkeltall, erfaring og kompetanse.",cv4_d:"CV i tegningsstil med utvalgte prosjekter og karriereanalyse.",cv_ats:"ATS",cv_design:"Designet",
 footer:"Tallene er beregnet fra min prosjektdatabase Career Analytics (nov. 2026). Årene er nettoår og overlapper ikke mellom prosjekter.",
 yrs:"år",yr:"år",project1:"prosjekt",country1:"land",proj:"pros.",projects:"prosjekter",countries:"land",years_net:"nettoår",
 for:"for",eng:"Prosjektering",role:"Rolle",type:"Type",warranty:"Signert pakkegaranti",cat_Scope:"Omfang",cat_Material:"Materialer",cat_System:"Systemer"}
