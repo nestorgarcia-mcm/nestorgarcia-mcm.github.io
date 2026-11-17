@@ -641,10 +641,14 @@ section.sheet#contact{background:linear-gradient(180deg,rgba(10,15,21,.72) 0,rgb
 
 /* barra de idiomas */
 .top .lang{display:none}
-.langbar{border-top:1px solid var(--line);background:#070c12}
-.langbar .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
-.langbar .wrap::-webkit-scrollbar{display:none}
-.lb{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;background:transparent;border:1px solid transparent;color:var(--muted);font:500 13px var(--f-mono);letter-spacing:.04em;padding:6px 12px;cursor:pointer;min-height:36px}
+.langsw{display:flex;align-items:center;gap:4px;flex:0 0 auto;position:relative;margin-left:auto}
+.lb{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;background:transparent;border:1px solid transparent;color:var(--muted);font:500 12px var(--f-mono);letter-spacing:.04em;padding:5px 8px;cursor:pointer;min-height:32px;white-space:nowrap}
+.lmore{position:relative}
+.lmore>summary{list-style:none}
+.lmore>summary::-webkit-details-marker{display:none}
+.lmore>summary .car{font-size:10px;opacity:.8}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);z-index:40;display:flex;flex-direction:column;gap:2px;min-width:170px;padding:4px;background:#0d141c;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.lmenu .lb{width:100%;justify-content:flex-start;font-size:13px;padding:7px 10px}
 .lb:hover{color:var(--fg);border-color:var(--line)}
 .lb[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
 .lb .flag{width:20px;height:14px}
@@ -845,8 +849,9 @@ section.sheet#ai-progress{background:linear-gradient(180deg,rgba(10,15,21,.55) 0
 <option value="de">Deutsch</option>
       </select>
     </label>
+    <div class="langsw" id="langbar" role="group" aria-label="Language / Idioma"></div>
   </div>
-  <div class="langbar"><div class="wrap" id="langbar" role="group" aria-label="Language / Idioma"></div></div>
+
 </header>
 
 <main id="top">
@@ -1446,12 +1451,26 @@ const FLAG_OF = {es_es: 'es', es: 'es', en: 'gb', fr: 'fr', pt: 'pt', it: 'it', 
 function flagEl(code) { const f = FLAGS[FLAG_OF[code] || code]; if (!f) return null; const s = el('span', 'flag'); s.innerHTML = f; s.setAttribute('aria-hidden', 'true'); return s; }
 function renderLangBar() {
   const h = document.getElementById('langbar'); const sel = document.getElementById('lang-sel'); if (!h || !sel) return; h.replaceChildren();
-  [...sel.options].forEach((o) => {
+  const MAIN = ['es', 'en'];
+  const MORE = {en: 'More', es: 'M\u00e1s', fr: 'Plus', pt: 'Mais', it: 'Altro', sv: 'Fler', no: 'Flere', de: 'Mehr'};
+  const opts = [...sel.options];
+  const go = (v) => { if (v === LANG) return; sel.value = v; sel.dispatchEvent(new Event('change')); };
+  const btn = (o, full) => {
     const b = el('button', 'lb'); b.type = 'button'; b.lang = o.value; b.setAttribute('aria-pressed', String(o.value === LANG));
-    const f = flagEl(o.value); if (f) b.append(f); b.append(el('span', null, o.textContent));
-    b.addEventListener('click', () => { if (o.value === LANG) return; sel.value = o.value; sel.dispatchEvent(new Event('change')); });
-    h.append(b);
-  });
+    b.title = o.textContent; b.setAttribute('aria-label', o.textContent);
+    const f = flagEl(o.value); if (f) b.append(f); b.append(el('span', null, full ? o.textContent : o.value.toUpperCase()));
+    b.addEventListener('click', () => go(o.value)); return b;
+  };
+  MAIN.forEach((v) => { const o = opts.find((x) => x.value === v); if (o) h.append(btn(o, false)); });
+  const rest = opts.filter((o) => !MAIN.includes(o.value));
+  const d = el('details', 'lmore'); const s = el('summary', 'lb');
+  const cur = rest.find((o) => o.value === LANG);
+  if (cur) { s.setAttribute('aria-pressed', 'true'); const f = flagEl(cur.value); if (f) s.append(f); s.append(el('span', null, cur.value.toUpperCase())); }
+  else { s.append(el('span', null, MORE[LANG] || MORE.en)); }
+  s.append(el('span', 'car', '\u25be')); s.title = rest.map((o) => o.textContent).join(' \u00b7 ');
+  const m = el('div', 'lmenu'); rest.forEach((o) => { const b = btn(o, true); b.addEventListener('click', () => { d.open = false; }); m.append(b); });
+  d.append(s, m); h.append(d);
+  if (!window.__lmoreClose) { window.__lmoreClose = true; document.addEventListener('click', (e) => { document.querySelectorAll('details.lmore[open]').forEach((x) => { if (!x.contains(e.target)) x.open = false; }); }); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('details.lmore[open]').forEach((x) => { x.open = false; }); }); }
 }
 function syncLangFlag() { renderLangBar(); const h = document.getElementById('lang-flag'); if (!h) return; h.replaceChildren(); const f = flagEl(LANG); if (f) h.append(f); }
 
