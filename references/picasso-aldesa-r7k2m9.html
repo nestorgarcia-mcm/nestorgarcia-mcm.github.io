@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Cuestionario de referencia profesional</title>
+<style>
+:root{--navy:#1F3864;--ink:#1c2430;--mut:#667085;--line:#d0d5dd;--bg:#f4f6f9;--card:#fff;--acc:#C8102E;--ok:#1a7f4b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+header{background:var(--navy);color:#fff;padding:18px 20px 14px}
+header h1{margin:0;font-size:1.15rem;letter-spacing:.3px}
+header p{margin:4px 0 0;font-size:.85rem;opacity:.85}
+.bar{height:6px;background:rgba(255,255,255,.25);border-radius:3px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:#fff;width:0;transition:width .25s}
+main{max-width:760px;margin:0 auto;padding:18px 14px 110px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:14px}
+h2{margin:0 0 4px;font-size:1.1rem;color:var(--navy)}
+h2 small,.en{font-weight:400;font-style:italic;color:var(--mut);font-size:.8rem}
+.hint{color:var(--mut);font-size:.82rem;margin:2px 0 8px}
+label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 4px}
+input[type=text],input[type=email],select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:inherit}
+textarea{min-height:84px;resize:vertical}
+select:focus,input:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:1px}
+.skill{border-top:1px solid var(--line);padding:12px 0}
+.skill:first-of-type{border-top:0}
+.skill .row{display:grid;grid-template-columns:1fr 190px;gap:10px;align-items:start}
+.skill b{font-size:.95rem}
+.skill input{margin-top:8px}
+.miss select{border-color:var(--acc)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips label{margin:0;font-weight:400;border:1px solid var(--line);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:.88rem;background:#fff}
+.chips input{margin-right:6px}
+nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px}
+nav div{max-width:760px;margin:0 auto;display:flex;gap:10px;justify-content:space-between;align-items:center}
+button,.btn{font:inherit;font-weight:600;border-radius:8px;padding:11px 18px;border:1px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+button.sec,.btn.sec{background:#fff;color:var(--navy)}
+button:disabled,.btn.off{opacity:.4;pointer-events:none;cursor:default}
+#stepno{font-size:.82rem;color:var(--mut)}
+.warn{background:#fff4f4;border:1px solid #f2c0c0;color:#8a1c1c;border-radius:8px;padding:10px 12px;font-size:.88rem;margin-bottom:12px}
+.oknote{background:#eefaf3;border:1px solid #b9e3cb;color:#165a37;border-radius:8px;padding:10px 12px;font-size:.88rem;margin-top:12px}
+.send{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+#doc{background:#fff;border:1px solid var(--line);padding:26px 28px;font-size:.86rem}
+#doc h3{margin:0;color:var(--navy);font-size:1.15rem}
+#doc h4{margin:16px 0 6px;color:var(--navy);font-size:.95rem;border-bottom:1.5px solid var(--navy);padding-bottom:3px}
+#doc table{width:100%;border-collapse:collapse}
+#doc td,#doc th{border:1px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+#doc th{background:#f2f4f7;width:34%;font-weight:600}
+#doc td.n{width:52px;text-align:center;font-weight:700}
+#doc .g td{background:#DCE6F2;font-weight:700;color:var(--navy)}
+#doc .sig{margin-top:18px;border:1px solid var(--line);padding:10px}
+#doc .foot{margin-top:10px;color:var(--mut);font-size:.72rem}
+@media (max-width:560px){.skill .row{grid-template-columns:1fr}}
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}header,nav,.noprint{display:none!important}body{background:#fff}main{max-width:none;padding:0}.card{border:0;padding:0}#doc{border:0;padding:0;font-size:9.5pt}}
+</style>
+</head>
+<body>
+<header><h1>Cuestionario de referencia profesional</h1><p id="sub"></p><div class="bar"><i id="prog"></i></div></header>
+<main id="main"></main>
+<nav class="noprint"><div><button class="sec" id="prev">← Atrás</button><span id="stepno"></span><button id="next">Siguiente →</button></div></nav>
+<script>
+const D={"codigo": "NG-AUT-048", "rev": 0, "fecha": "2026-11-17", "candidato": "Néstor García", "evaluador": {"nombre": "Antonio Gil Domínguez", "empresa": "Aldesa Ingeniería", "email": ""}, "proyecto": {"nombre": "Proyecto Picasso – unidades de pretratamiento BR3 y BR4 (PTU3/PTU4)", "cliente": "CBSR (Moeve + Apical) · Parque Energético La Rábida, Huelva", "rol": "Mechanical Construction Manager", "rol_empresa": "Contratista de montaje mecánico (Aldesa Ingeniería)", "periodo": "Noviembre 2025 – julio 2026 (+ 2 semanas de vacaciones vinculadas al proyecto)"}, "grupos": [{"titulo": "Gestión y liderazgo", "en": "Management & leadership", "items": [["Liderazgo de equipos", "Team leadership", "Dirección de supervisores, soldadores y subcontratas en BR3/BR4"], ["Planificación y producción", "Planning & productivity", "Control de avance y ritmo de soldadura; cumplimiento de hitos"], ["Toma de decisiones", "Decision-making", "Rapidez y criterio, también bajo presión o con información incompleta"], ["Resolución de problemas", "Problem solving", "Faltas de material, interferencias, cambios de alcance"]]}, {"titulo": "Técnica, calidad y seguridad", "en": "Technical, quality & safety", "items": [["Conocimiento técnico", "Technical knowledge", "Piping ASME B31.3, soldadura, END y montaje de equipos"], ["Calidad (QA/QC)", "Quality (QA/QC)", "Libro de soldaduras, punch list, liberaciones a pintura"], ["Seguridad (HSE)", "Health & safety", "Cultura de seguridad y cumplimiento en obra"], ["Digitalización y datos", "Digital tools & data", "Power BI, cruce MTO-SAP, control de datos de obra"]]}, {"titulo": "Actitud y relación", "en": "Attitude & relationships", "items": [["Esfuerzo y dedicación", "Effort & commitment", "Implicación, disponibilidad y compromiso con el proyecto"], ["Profesionalidad e integridad", "Professionalism & integrity", "Fiabilidad, ética y trato profesional"], ["Comunicación con el cliente", "Client communication", "Coordinación con Moeve, Apical, Worley, Irluc y CNCC13"], ["Adaptación al cambio", "Adaptability", "Respuesta ante los cambios de cliente, contratista y alcance"]]}], "abiertas": [["¿Cuáles considera que son sus tres principales fortalezas?", "What are his three main strengths?"], ["Describa un logro o situación concreta del proyecto en la que destacara su trabajo.", "Describe a specific achievement or situation where his work stood out."], ["¿Qué aspecto podría seguir desarrollando?", "Which area could he keep developing?"], ["¿Hay algo más que quiera destacar?", "Anything else you would like to highlight?"]], "roles_recomendados": ["Mechanical Construction Manager", "Site / Construction Manager", "Project Manager", "QA/QC Manager", "Client Representative", "Commissioning / Completion Manager"], "envio": {"email": "nestorgarcia.emp@gmail.com", "whatsapp": "34627225615", "webhook": ""}, "motivo_salida": "Cambios en el cliente (entrada de Apical), traspaso de trabajos a CNCC13 y reorganización del equipo, reducción de alcance y aplazamiento de fases, cambio de contrato y fin de la fase para la que se incorporó."};
+const KEY='ref_'+D.codigo;
+const ESC=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const RATE=[['5','5 · Excelente'],['4','4 · Muy bueno'],['3','3 · Bueno'],['2','2 · Mejorable'],['1','1 · Insuficiente'],['N/O','N/O · No observado']];
+const REL=['Superior directo','Project Manager del proyecto','Cliente / representante de la propiedad','Compañero de equipo','Otro'];
+let S={ev:{nombre:D.evaluador.nombre||'',cargo:'',empresa:D.evaluador.empresa||'',relacion:'',periodo:D.proyecto.periodo||'',email:D.evaluador.email||'',tel:''},r:{},c:{},a:{},g:{global:'',volveria:'',motivo:'',contacto:'',roles:[],otros:''},ok:false,firma:'',step:0};
+try{const v=JSON.parse(localStorage.getItem(KEY));if(v&&v.ev)S=Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const items=[];D.grupos.forEach((g,gi)=>g.items.forEach((it,ii)=>items.push({id:gi+'_'+ii,g:g.titulo,es:it[0],en:it[1],hint:it[2]})));
+const steps=['intro','ev',...D.grupos.map((g,i)=>'g'+i),'open','glob','rev'];
+const $=id=>document.getElementById(id);
+const sel=(id,val,opts,ph)=>`<select id="${id}"><option value="">${ph||'Seleccione…'}</option>${opts.map(o=>{const[v,t]=Array.isArray(o)?o:[o,o];return `<option value="${ESC(v)}"${v===val?' selected':''}>${ESC(t)}</option>`}).join('')}</select>`;
+function missing(){const m=[];items.forEach(i=>{if(!S.r[i.id])m.push(i.es)});['global','volveria','motivo','contacto'].forEach(k=>{if(!S.g[k])m.push({global:'Valoración global',volveria:'Volvería a contar con él',motivo:'Confirmación del motivo de salida',contacto:'Contacto como referencia'}[k])});if(!S.ev.nombre)m.push('Nombre del evaluador');if(!S.ev.cargo)m.push('Cargo del evaluador');return m}
+function render(){
+ const st=steps[S.step];let h='';
+ $('sub').textContent=D.candidato+' · '+D.proyecto.rol+' · '+D.proyecto.nombre;
+ $('prog').style.width=(S.step/(steps.length-1)*100)+'%';
+ $('stepno').textContent='Paso '+(S.step+1)+' de '+steps.length;
+ $('prev').disabled=S.step===0;$('next').style.visibility=st==='rev'?'hidden':'visible';
+ $('next').textContent=st==='intro'?'Empezar →':(steps[S.step+1]==='rev'?'Revisar →':'Siguiente →');
+ if(st==='intro'){h=`<div class="card"><h2>Gracias por su tiempo <small>Thank you for your time</small></h2>
+ <p>Le pido unos <b>5–10 minutos</b> para valorar mi trabajo en el proyecto. Solo tiene que elegir una valoración en cada lista desplegable y, si quiere, añadir un comentario breve.</p>
+ <p>Al terminar verá el documento con sus respuestas, podrá <b>revisarlo y aprobarlo</b>, guardarlo en PDF y enviármelo por email o WhatsApp. Nada se envía sin su aprobación, y sus respuestas se usarán únicamente como referencia en procesos de selección.</p>
+ <table style="width:100%;font-size:.88rem;border-collapse:collapse">${[['Candidato',D.candidato],['Proyecto',D.proyecto.nombre],['Cliente',D.proyecto.cliente],['Puesto',D.proyecto.rol],['Empresa',D.proyecto.rol_empresa],['Periodo',D.proyecto.periodo]].map(r=>`<tr><td style="padding:4px 8px 4px 0;color:var(--mut);white-space:nowrap;vertical-align:top">${r[0]}</td><td style="padding:4px 0">${ESC(r[1])}</td></tr>`).join('')}</table>
+ <p class="hint">Sus respuestas se guardan en este dispositivo mientras rellena, por si necesita continuar más tarde.</p></div>`}
+ if(st==='ev'){const e=S.ev;h=`<div class="card"><h2>Sus datos <small>Referee details</small></h2>
+ <label>Nombre</label><input type="text" data-ev="nombre" value="${ESC(e.nombre)}">
+ <label>Cargo en el proyecto</label><input type="text" data-ev="cargo" value="${ESC(e.cargo)}" placeholder="p. ej. Project Manager">
+ <label>Empresa</label><input type="text" data-ev="empresa" value="${ESC(e.empresa)}">
+ <label>Relación con el candidato</label>${sel('rel',e.relacion,REL)}
+ <label>Periodo en que trabajaron juntos</label><input type="text" data-ev="periodo" value="${ESC(e.periodo)}">
+ <label>Email</label><input type="email" data-ev="email" value="${ESC(e.email)}">
+ <label>Teléfono <span class="en">(opcional)</span></label><input type="text" data-ev="tel" value="${ESC(e.tel)}"></div>`}
+ if(st[0]==='g'&&st!=='glob'){const gi=+st.slice(1),g=D.grupos[gi];h=`<div class="card"><h2>${ESC(g.titulo)} <small>${ESC(g.en)}</small></h2><p class="hint">1 = insuficiente · 5 = excelente · N/O = no observado</p>${g.items.map((it,ii)=>{const id=gi+'_'+ii;return `<div class="skill"><div class="row"><div><b>${ESC(it[0])}</b> <span class="en">${ESC(it[1])}</span><div class="hint">${ESC(it[2])}</div></div>${sel('r_'+id,S.r[id]||'',RATE,'Valoración…')}</div><input type="text" data-c="${id}" value="${ESC(S.c[id]||'')}" placeholder="Ejemplo o comentario (opcional)"></div>`}).join('')}</div>`}
+ if(st==='open'){h=`<div class="card"><h2>Preguntas abiertas <small>Open questions</small></h2><p class="hint">Opcionales, pero son lo que más valor aporta a la referencia.</p>${D.abiertas.map((q,i)=>`<label>${i+1}. ${ESC(q[0])}<br><span class="en">${ESC(q[1])}</span></label><textarea data-a="${i}">${ESC(S.a[i]||'')}</textarea>`).join('')}</div>`}
+ if(st==='glob'){const g=S.g;h=`<div class="card"><h2>Valoración global y recomendación <small>Overall rating</small></h2>
+ <label>Valoración global de su trabajo</label>${sel('g_global',g.global,RATE.slice(0,5))}
+ <label>¿Volvería a contar con él en un proyecto?</label>${sel('g_volveria',g.volveria,['Sí','Sí, con reservas','No'])}
+ <label>¿Confirma que su salida se debió a cambios del proyecto y no a su desempeño?</label><p class="hint">${ESC(D.motivo_salida||'')}</p>${sel('g_motivo',g.motivo,['Sí','En parte','No'])}
+ <label>Le recomendaría para</label><div class="chips">${D.roles_recomendados.map(r=>`<label><input type="checkbox" data-rol="${ESC(r)}"${g.roles.includes(r)?' checked':''}>${ESC(r)}</label>`).join('')}</div>
+ <label>Otros puestos <span class="en">(opcional)</span></label><input type="text" id="g_otros" value="${ESC(g.otros)}">
+ <label>¿Acepta que reclutadores o empresas le contacten como referencia?</label>${sel('g_contacto',g.contacto,['Sí','Sí, solo por email','No'])}</div>`}
+ if(st==='rev'){const m=missing();h=`<div class="card noprint"><h2>Revise y apruebe <small>Review & approve</small></h2>
+ ${m.length?`<div class="warn"><b>Faltan ${m.length} respuestas:</b> ${m.map(ESC).join(' · ')}. Vuelva atrás para completarlas.</div>`:'<p class="hint">Este es el documento que se generará con sus respuestas. Si algo no es correcto, vuelva atrás y cámbielo.</p>'}</div>
+ <div class="card"><div id="doc">${docHTML()}</div></div>
+ <div class="card noprint"><label style="margin-top:0">Nombre de quien aprueba</label><input type="text" id="firma" value="${ESC(S.firma||S.ev.nombre)}">
+ <label style="font-weight:400;display:flex;gap:10px;align-items:flex-start"><input type="checkbox" id="ok"${S.ok?' checked':''}${m.length?' disabled':''} style="margin-top:4px"> <span>He revisado el documento y <b>apruebo</b> que se envíe a ${ESC(D.candidato)} para su uso como referencia profesional.</span></label>
+ <div class="send">
+  <button id="bpdf" class="sec">1 · Guardar en PDF / imprimir</button>
+  <a id="bmail" class="btn" target="_blank" rel="noopener">2 · Enviar por email</a>
+  <a id="bwa" class="btn" target="_blank" rel="noopener">2 · Enviar por WhatsApp</a>
+  <button id="bcopy" class="sec">Copiar el texto</button>
+ </div>
+ <p class="hint" style="margin-top:10px">El email o el WhatsApp se abren con el mensaje ya escrito: solo tiene que pulsar «Enviar». Si ha guardado el PDF, puede adjuntarlo al mensaje. Si no se abre su aplicación de correo, use «Copiar el texto» y péguelo en un email a <b>${ESC(D.envio.email)}</b>.</p>
+ <div id="msg"></div></div>`}
+ $('main').innerHTML=h;bind();window.scrollTo(0,0);
+}
+function docHTML(){const e=S.ev,g=S.g,f=new Date().toLocaleDateString('es-ES');
+ const row=(a,b)=>`<tr><th>${ESC(a)}</th><td>${ESC(b)||'—'}</td></tr>`;
+ let h=`<h3>Referencia profesional – ${ESC(D.candidato)}</h3><div style="color:var(--mut)">Cuestionario de valoración · ${ESC(D.proyecto.rol)}</div>
+ <h4>Evaluador</h4><table>${row('Nombre',e.nombre)}${row('Cargo',e.cargo)}${row('Empresa',e.empresa)}${row('Relación con el candidato',e.relacion)}${row('Periodo de colaboración',e.periodo)}${row('Contacto',[e.email,e.tel].filter(Boolean).join(' · '))}</table>
+ <h4>Proyecto de referencia</h4><table>${row('Proyecto',D.proyecto.nombre)}${row('Cliente / ubicación',D.proyecto.cliente)}${row('Puesto del candidato',D.proyecto.rol)}${row('Empresa del candidato',D.proyecto.rol_empresa)}${row('Periodo',D.proyecto.periodo)}</table>
+ <h4>Valoración de aptitudes (1 insuficiente – 5 excelente)</h4><table>`;
+ D.grupos.forEach((gr,gi)=>{h+=`<tr class="g"><td colspan="3">${ESC(gr.titulo)}</td></tr>`;gr.items.forEach((it,ii)=>{const id=gi+'_'+ii;h+=`<tr><th>${ESC(it[0])}</th><td class="n">${ESC(S.r[id]||'—')}</td><td>${ESC(S.c[id]||'')}</td></tr>`})});
+ const nums=items.map(i=>+S.r[i.id]).filter(n=>n>0);const avg=nums.length?(nums.reduce((a,b)=>a+b,0)/nums.length).toFixed(1).replace('.',','):'—';
+ h+=`<tr><th>Media de las aptitudes valoradas</th><td class="n">${avg}</td><td>${nums.length} de ${items.length} aptitudes valoradas</td></tr></table>`;
+ const ab=D.abiertas.map((q,i)=>S.a[i]?`<tr><th>${ESC(q[0])}</th><td>${ESC(S.a[i])}</td></tr>`:'').join('');
+ if(ab)h+=`<h4>Comentarios</h4><table>${ab}</table>`;
+ h+=`<h4>Valoración global y recomendación</h4><table>${row('Valoración global',g.global?g.global+' de 5':'')}${row('¿Volvería a contar con él?',g.volveria)}${row('La salida se debió a cambios del proyecto y no a su desempeño',g.motivo)}${row('Le recomendaría para',g.roles.concat(g.otros?[g.otros]:[]).join(', '))}${row('Acepta ser contactado como referencia',g.contacto)}</table>
+ <div class="sig"><b>Revisado y aprobado por:</b> ${ESC(S.firma||e.nombre)||'—'}${e.cargo?', '+ESC(e.cargo):''}${e.empresa?' · '+ESC(e.empresa):''}<br><b>Fecha:</b> ${f} &nbsp;·&nbsp; <b>Estado:</b> ${S.ok?'Aprobado para su envío':'Pendiente de aprobación'}<br><br>Firma: ______________________________</div>
+ <div class="foot">${ESC(D.codigo)} Rev. ${ESC(D.rev)} · Generado el ${f} · Uso exclusivo como referencia profesional de ${ESC(D.candidato)}</div>`;
+ return h}
+function textSummary(){const e=S.ev,g=S.g,L=[];
+ L.push('REFERENCIA PROFESIONAL – '+D.candidato,'Proyecto: '+D.proyecto.nombre,'Puesto: '+D.proyecto.rol+' ('+D.proyecto.rol_empresa+')','Periodo: '+D.proyecto.periodo,'');
+ L.push('EVALUADOR: '+e.nombre+(e.cargo?', '+e.cargo:'')+(e.empresa?' · '+e.empresa:''),(e.relacion?'Relación: '+e.relacion+'. ':'')+'Contacto: '+[e.email,e.tel].filter(Boolean).join(' · '),'');
+ L.push('APTITUDES (1–5)');items.forEach(i=>L.push('· '+i.es+': '+(S.r[i.id]||'—')+(S.c[i.id]?' — '+S.c[i.id]:'')));L.push('');
+ D.abiertas.forEach((q,i)=>{if(S.a[i])L.push(q[0],S.a[i],'')});
+ L.push('VALORACIÓN GLOBAL: '+g.global+' de 5','Volvería a contar con él: '+g.volveria,'Salida por cambios del proyecto, no por desempeño: '+g.motivo,'Le recomendaría para: '+(g.roles.concat(g.otros?[g.otros]:[]).join(', ')||'—'),'Acepta ser contactado como referencia: '+g.contacto,'');
+ L.push('Revisado y aprobado por '+(S.firma||e.nombre)+' el '+new Date().toLocaleDateString('es-ES')+'.');
+ return L.join('\n')}
+function refreshSend(){const on=S.ok&&!missing().length,t=textSummary();
+ const m=$('bmail'),w=$('bwa');if(!m)return;
+ m.href='mailto:'+D.envio.email+'?subject='+encodeURIComponent('Referencia profesional – '+D.candidato+' – '+D.proyecto.nombre.split(' – ')[0])+'&body='+encodeURIComponent(t);
+ w.href='https://wa.me/'+D.envio.whatsapp+'?text='+encodeURIComponent(t);
+ [m,w].forEach(x=>x.classList.toggle('off',!on));$('bpdf').disabled=!on;$('bcopy').disabled=!on;
+ $('doc').innerHTML=docHTML()}
+function note(t){$('msg').innerHTML='<div class="oknote">'+t+'</div>'}
+function hook(via){if(!D.envio.webhook)return;try{fetch(D.envio.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({codigo:D.codigo,via,fecha:new Date().toISOString(),respuestas:S,texto:textSummary()})}).catch(()=>{})}catch(e){}}
+function bind(){
+ document.querySelectorAll('[data-ev]').forEach(i=>i.oninput=()=>{S.ev[i.dataset.ev]=i.value.trim();save()});
+ const rel=$('rel');if(rel)rel.onchange=()=>{S.ev.relacion=rel.value;save()};
+ items.forEach(it=>{const s=$('r_'+it.id);if(s)s.onchange=()=>{S.r[it.id]=s.value;save();s.closest('.skill').classList.toggle('miss',!s.value)}});
+ document.querySelectorAll('[data-c]').forEach(i=>i.oninput=()=>{S.c[i.dataset.c]=i.value.trim();save()});
+ document.querySelectorAll('[data-a]').forEach(i=>i.oninput=()=>{S.a[i.dataset.a]=i.value.trim();save()});
+ ['global','volveria','motivo','contacto'].forEach(k=>{const s=$('g_'+k);if(s)s.onchange=()=>{S.g[k]=s.value;save()}});
+ const o=$('g_otros');if(o)o.oninput=()=>{S.g.otros=o.value.trim();save()};
+ document.querySelectorAll('[data-rol]').forEach(c=>c.onchange=()=>{const r=c.dataset.rol;S.g.roles=S.g.roles.filter(x=>x!==r);if(c.checked)S.g.roles.push(r);save()});
+ if($('ok')){if(missing().length)S.ok=false;
+  $('ok').onchange=()=>{S.ok=$('ok').checked;save();refreshSend()};
+  $('firma').oninput=()=>{S.firma=$('firma').value.trim();save();refreshSend()};
+  $('bpdf').onclick=()=>{window.print()};
+  $('bmail').onclick=()=>{hook('email');note('Se ha abierto su aplicación de correo con el mensaje preparado. Pulse «Enviar» allí para que me llegue. Gracias.')};
+  $('bwa').onclick=()=>{hook('whatsapp');note('Se ha abierto WhatsApp con el mensaje preparado. Pulse «Enviar» allí para que me llegue. Gracias.')};
+  $('bcopy').onclick=()=>{const t=textSummary();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>note('Texto copiado. Péguelo en un email a '+ESC(D.envio.email)+'.')).catch(()=>{note('<textarea style="min-height:200px">'+ESC(t)+'</textarea>')})};
+  refreshSend()}
+}
+function go(d){
+ if(d>0){const st=steps[S.step];if(st[0]==='g'&&st!=='glob'){const gi=+st.slice(1);let bad=false;D.grupos[gi].items.forEach((it,ii)=>{const id=gi+'_'+ii,el=$('r_'+id).closest('.skill');el.classList.toggle('miss',!S.r[id]);if(!S.r[id])bad=true});if(bad){$('stepno').textContent='Elija una valoración en cada aptitud (o N/O)';return}}}
+ S.step=Math.max(0,Math.min(steps.length-1,S.step+d));save();render()}
+$('prev').onclick=()=>go(-1);$('next').onclick=()=>go(1);
+if(S.step>=steps.length)S.step=0;render();
+</script>
+</body>
+</html>
