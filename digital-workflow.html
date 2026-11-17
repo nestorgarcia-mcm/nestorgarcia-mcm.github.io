@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Digital workflow · Néstor García · Mechanical Construction Manager</title>
+<meta name="description" content="How I use AI and automation for document control, email and reporting on construction projects: before and after, time saved and how the result is controlled.">
+<meta name="author" content="Néstor García">
+<meta name="theme-color" content="#0a0f15">
+<link rel="canonical" href="https://nestorgarcia-mcm.github.io/digital-workflow.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Néstor García · Portfolio">
+<meta property="og:title" content="Digital workflow · AI-assisted document control, email and reporting">
+<meta property="og:description" content="Coded document register, automatic email triage and an hourly report: 20+ hours a week back for site work, with every action traced.">
+<meta property="og:url" content="https://nestorgarcia-mcm.github.io/digital-workflow.html">
+<meta property="og:image" content="https://nestorgarcia-mcm.github.io/og-image.jpg">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:dark;--bg:#0a0f15;--panel:#101821;--line:#223246;--grid:#152231;--fg:#d7e3ef;--muted:#8fa0b4;--accent:#38c6e8;--accent-soft:#0f2a36;--ok:#3ddc84;--ok-soft:#0e2e1d;--amber:#ffb020;--max:1180px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.55 'IBM Plex Sans',system-ui,sans-serif}
+a{color:var(--accent)}
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:600;line-height:1.08;letter-spacing:.01em}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.lbl{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+nav.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,15,21,.94);backdrop-filter:blur(6px);z-index:5}
+nav.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px}
+nav.top a{text-decoration:none;font:500 13px 'IBM Plex Mono';letter-spacing:.06em}
+nav.top b{font-family:'Barlow Condensed';font-size:20px;font-weight:600;color:var(--fg)}
+header.hero{padding-block:64px 40px}
+header.hero h1{font-size:clamp(38px,6vw,64px);margin:10px 0 14px}
+header.hero p{max-width:760px;color:var(--muted);font-size:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+.kpi{padding:18px}
+.kpi b{display:block;font:700 46px/1 'Barlow Condensed';color:var(--accent)}
+.kpi span{font-size:14px;color:var(--muted)}
+section{padding-block:48px;border-top:1px solid var(--line)}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.sh .no{font:500 14px 'IBM Plex Mono';color:var(--accent)}
+.sh h2{font-size:clamp(28px,4vw,40px)}
+.intro{color:var(--muted);max-width:820px;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{padding:22px;display:flex;flex-direction:column;gap:10px}
+.card .n{font:500 12px 'IBM Plex Mono';color:var(--accent);letter-spacing:.12em}
+.card h3{font-size:26px}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.card li{padding-left:18px;position:relative;font-size:15px;color:var(--muted)}
+.card li::before{content:'›';position:absolute;left:2px;color:var(--accent)}
+.card li b{color:var(--fg);font-weight:500}
+.card .show{margin-top:auto;padding-top:10px;border-top:1px solid var(--grid);font:13px 'IBM Plex Mono';color:var(--ok)}
+.chart{padding:22px}
+.chart .row{display:grid;grid-template-columns:minmax(150px,240px) 1fr 74px;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--grid)}
+.chart .row:last-child{border-bottom:0}
+.chart .tk{font-size:15px}
+.chart .bars{display:flex;flex-direction:column;gap:4px}
+.chart .b{height:12px;border-radius:2px}
+.chart .b.h{background:#4a5d74}.chart .b.a{background:var(--ok)}
+.chart .v{font:13px 'IBM Plex Mono';color:var(--muted);text-align:right;line-height:1.35}
+.chart .v b{color:var(--ok);font-weight:500}
+.legend{display:flex;gap:18px;font:13px 'IBM Plex Mono';color:var(--muted);margin-bottom:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:6px}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.ba{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ba figure{overflow:hidden}
+.ba img{width:100%;height:auto;display:block}
+.ba figcaption{padding:10px 14px;font-size:14px;color:var(--muted)}
+.ctrl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ctrl div{padding:16px 16px 16px 44px;position:relative;font-size:15px;color:var(--muted)}
+.ctrl div::before{content:'✓';position:absolute;left:16px;top:14px;color:var(--ok);font-weight:600}
+.ctrl b{color:var(--fg);font-weight:500;display:block}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.doc{padding:18px;text-decoration:none;color:var(--fg);display:flex;flex-direction:column;gap:6px;transition:border-color .15s}
+.doc:hover{border-color:var(--accent)}
+.doc b{font:600 21px 'Barlow Condensed'}
+.doc span{font-size:14px;color:var(--muted)}
+.doc em{font:normal 12px 'IBM Plex Mono';color:var(--accent);margin-top:auto}
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}.ba{grid-template-columns:1fr}.chart .row{grid-template-columns:1fr 64px}.chart .tk{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap"><a href="./"><b>Néstor García</b></a><a href="./#data-tools">← Back to portfolio</a></div></nav>
+
+<header class="hero grid-bg"><div class="wrap">
+  <span class="lbl">Digital workflow · Nov 2026</span>
+  <h1>AI-assisted document control,<br>email and reporting</h1>
+  <p>On a construction project the hard part is not the volume of documents, it is keeping them under control. I use AI and automation for the repetitive work, and keep the review, the decisions and the technical responsibility.</p>
+  <div class="kpis">
+    <div class="kpi panel"><b>20+ h</b><span>a week back for site work<br>(conservative estimate)</span></div>
+    <div class="kpi panel"><b>240+</b><span>documents in a coded register<br>420+ revisions traced</span></div>
+    <div class="kpi panel"><b>~300</b><span>emails a week classified by rules</span></div>
+    <div class="kpi panel"><b>~150 h</b><span>of one-off documentation work done (≈4 weeks)</span></div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="sh"><span class="no">01</span><h2>Five blocks</h2></div>
+  <p class="intro">What I built and use every day. Figures come from my own registers.</p>
+  <div class="cards">
+    <article class="card panel"><span class="n">1 · DOCUMENT CONTROL</span><h3>Coded register with revision history</h3><ul>
+      <li><b>13 document types</b> with their own codes, like a project MDR</li>
+      <li><b>240+ documents, 420+ revisions</b>, each with date, reason and author</li>
+      <li>Folder template and renaming by project; <b>18,910 documents indexed</b></li>
+      <li>MDR template and a document control procedure in English and Spanish</li></ul>
+      <div class="show">→ Rev. 0 = first issue · old versions to Obsolete</div></article>
+    <article class="card panel"><span class="n">2 · PROCEDURES</span><h3>Drafted with AI, reviewed by me</h3><ul>
+      <li><b>214 existing procedures</b> inventoried in 15 types</li>
+      <li><b>19 discipline procedures</b>: piping, welding, NDT, testing, flushing</li>
+      <li>Each with an <b>A4 one-page summary</b> for the crews</li>
+      <li>Technical review before issue: codes, hold points, site reality</li></ul>
+      <div class="show">→ 6 h of drafting becomes 30 min of review</div></article>
+    <article class="card panel"><span class="n">3 · EMAIL</span><h3>Triage by rules, every action logged</h3><ul>
+      <li><b>11 folders, 26 sub-labels, 20 filters</b></li>
+      <li><b>191 senders</b> mapped in an editable table</li>
+      <li>Daily summary; only what needs me stays in the inbox</li>
+      <li>Every move recorded with its own code</li></ul>
+      <div class="show">→ 137 threads filed in one pass</div></article>
+    <article class="card panel"><span class="n">4 · REPORTS AND DATA</span><h3>A report that builds itself</h3><ul>
+      <li>About <b>160 fields recalculated every hour</b></li>
+      <li>SQLite database of projects, documents and tenders</li>
+      <li><b>91 vacancies analysed</b> with priority and risk flags</li>
+      <li>Dashboard that opens on a PC or a phone</li></ul>
+      <div class="show">→ 60 min by hand becomes 5 min of review</div></article>
+    <article class="card panel"><span class="n">5 · INFRASTRUCTURE</span><h3>Tools wired together</h3><ul>
+      <li>About <b>40 automations and skills</b> of my own</li>
+      <li>A control deck with <b>40+ one-touch actions</b>, also from the phone</li>
+      <li>Connected: email, cloud drive, Notion, n8n, a local knowledge base</li>
+      <li>Daily backup to a separate disk</li></ul>
+      <div class="show">→ sources → AI and automations → register, reports, dashboard</div></article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><span class="no">02</span><h2>Minutes per task: by hand vs with AI</h2></div>
+  <p class="intro">From my own time log. "With AI" is my review time, not the time the AI takes to generate.</p>
+  <div class="chart panel">
+    <div class="legend"><span><i style="background:#4a5d74"></i>By hand</span><span><i style="background:var(--ok)"></i>With AI (my review)</span></div>
+    <div class="row"><span class="tk">Discipline procedure</span><div class="bars"><div class="b h" style="width:100%"></div><div class="b a" style="width:8.3%"></div></div><span class="v">360<br><b>30</b></span></div>
+    <div class="row"><span class="tk">One-page visual summary</span><div class="bars"><div class="b h" style="width:33.3%"></div><div class="b a" style="width:2.8%"></div></div><span class="v">120<br><b>10</b></span></div>
+    <div class="row"><span class="tk">Daily progress report</span><div class="bars"><div class="b h" style="width:16.7%"></div><div class="b a" style="width:1.4%"></div></div><span class="v">60<br><b>5</b></span></div>
+    <div class="row"><span class="tk">Tailored CV or cover letter</span><div class="bars"><div class="b h" style="width:12.5%"></div><div class="b a" style="width:2.2%"></div></div><span class="v">45<br><b>8</b></span></div>
+    <div class="row"><span class="tk">Tender or vacancy analysis</span><div class="bars"><div class="b h" style="width:8.3%"></div><div class="b a" style="width:1.4%"></div></div><span class="v">30<br><b>5</b></span></div>
+    <div class="row"><span class="tk">Reply to a vendor or recruiter</span><div class="bars"><div class="b h" style="width:4.2%"></div><div class="b a" style="width:.6%"></div></div><span class="v">15<br><b>2</b></span></div>
+  </div>
+  <p class="note">Weekly saving: 20+ hours is a conservative figure that counts only tasks I would do by hand in a normal project week. One-off work (a batch of 19 procedures, indexing 18,910 documents) is counted separately. Estimates, not audited.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><span class="no">03</span><h2>Before / after</h2></div>
+  <p class="intro">Illustrative and anonymised. No client data.</p>
+  <div class="ba">
+    <figure class="panel"><img src="assets/dw/ba-1-inbox.webp" alt="Before and after: the inbox. Before, 300+ emails a week in one list sorted by hand. After, 11 folders and 20 filters, 137 threads filed in one pass and a daily summary." width="1080" height="1350" loading="lazy"><figcaption>The inbox</figcaption></figure>
+    <figure class="panel"><img src="assets/dw/ba-2-folders.webp" alt="Before and after: project folders. Before, unclear versions such as final final.pdf. After, a folder template and a register with code, revision, date, reason and author." width="1080" height="1350" loading="lazy"><figcaption>Project folders</figcaption></figure>
+    <figure class="panel"><img src="assets/dw/ba-3-report.webp" alt="Before and after: the daily report. Before, 60 minutes a day by hand. After, about 160 fields recalculated every hour and 5 minutes of review." width="1080" height="1350" loading="lazy"><figcaption>The daily report</figcaption></figure>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><span class="no">04</span><h2>How the result is controlled</h2></div>
+  <p class="intro">Automation is only useful on a project if every result can be traced and checked.</p>
+  <div class="ctrl">
+    <div class="panel"><b>One code per document</b>and one row per revision: Rev., date, reason, author.</div>
+    <div class="panel"><b>Every email action logged</b>with its own code, so any move can be traced.</div>
+    <div class="panel"><b>Originals never overwritten</b>new versions alongside, old ones to an Obsolete folder.</div>
+    <div class="panel"><b>AI drafts, I approve</b>technical responsibility stays with the engineer.</div>
+    <div class="panel"><b>Client systems stay the master</b>works alongside Aconex, Procore or the client's EDMS.</div>
+    <div class="panel"><b>Daily backup, no client data published</b>everything shown here is my own or anonymised.</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><span class="no">05</span><h2>Downloads and live dashboard</h2></div>
+  <div class="docs">
+    <a class="doc panel" href="assets/dw/Nestor-Garcia-Case-Study-AI-Document-Control.pdf" target="_blank" rel="noopener"><b>Case study</b><span>Problem, solution, result and control on one page.</span><em>PDF · A4</em></a>
+    <a class="doc panel" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Data-Centre.pdf" target="_blank" rel="noopener"><b>On your data centre project</b><span>How I would set it up from week 1.</span><em>PDF · A4</em></a>
+    <a class="doc panel" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Refinery.pdf" target="_blank" rel="noopener"><b>On your turnaround or revamp</b><span>From pre-TA to mechanical completion.</span><em>PDF · A4</em></a>
+    <a class="doc panel" href="https://claude.ai/artifact/FES8wNNUQAeGznCYoPaidY" target="_blank" rel="noopener"><b>Live session dashboard</b><span>The hourly dashboard in its published version.</span><em>Opens in a new tab ↗</em></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© Néstor García · Figures from my own registers, Nov 2026; time savings are my own estimates.</span><span><a href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/">LinkedIn</a> · <a href="./">Portfolio</a> · <a href="./#cv">CV</a></span></div></footer>
+</body>
+</html>
