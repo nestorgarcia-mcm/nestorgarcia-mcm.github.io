@@ -90,107 +90,116 @@ section{padding-block:48px;border-top:1px solid var(--line)}
 .ctrl div::before{content:'✓';position:absolute;left:16px;top:14px;color:var(--ok);font-weight:600}
 .ctrl b{color:var(--fg);font-weight:500;display:block}
 .upd{font:12px 'IBM Plex Mono';color:var(--muted);margin-top:18px}
+.navr{display:flex;align-items:center;gap:14px}
+.langsw{display:flex;gap:4px}
+.lb{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid transparent;color:var(--muted);font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.04em;padding:5px 8px;border-radius:4px;cursor:pointer;min-height:32px}
+.lb:hover{color:var(--fg);border-color:var(--line)}
+.lb[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.lb:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.flag{display:inline-block;width:20px;height:14px;line-height:0;box-shadow:0 0 0 1px var(--line)}
+.flag svg{width:100%;height:100%;display:block}
+@media(max-width:560px){.navr a[data-i18n=back]{display:none}}
 footer{border-top:1px solid var(--line);padding-block:28px;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}.ba{grid-template-columns:1fr}.chart .row{grid-template-columns:1fr 64px}.chart .tk{grid-column:1/-1}}
 </style>
 </head>
 <body>
-<nav class="top"><div class="wrap"><a href="./"><b>Néstor García</b></a><a href="./#data-tools">← Back to portfolio</a></div></nav>
+<nav class="top"><div class="wrap"><a href="./"><b>Néstor García</b></a><div class="navr"><a href="./#data-tools" data-i18n="back">← Back to portfolio</a><div class="langsw" role="group" aria-label="Language / Idioma"><button type="button" class="lb" data-l="es" title="Español" aria-label="Español"><span class="flag" data-f="es"></span><span>ES</span></button><button type="button" class="lb" data-l="en" title="English" aria-label="English"><span class="flag" data-f="gb"></span><span>EN</span></button></div></div></div></nav>
 
 <header class="hero grid-bg"><div class="wrap">
-  <span class="lbl">Digital workflow · Nov 2026</span>
-  <h1>AI-assisted document control,<br>email and reporting</h1>
-  <p>On a construction project the hard part is not the volume of documents, it is keeping them under control. I use AI and automation for the repetitive work, and keep the review, the decisions and the technical responsibility.</p>
+  <span class="lbl" data-i18n="hero_lbl">Digital workflow · Nov 2026</span>
+  <h1 data-i18n="h1">AI-assisted document control,<br>email and reporting</h1>
+  <p data-i18n="hero_p">On a construction project the hard part is not the volume of documents, it is keeping them under control. I use AI and automation for the repetitive work, and keep the review, the decisions and the technical responsibility.</p>
   <div class="jump" aria-label="Materials by audience">
-    <a class="btn pri" href="#g-hiring">For hiring managers</a>
-    <a class="btn" href="#g-clients">For your project</a>
-    <a class="btn" href="#g-interview">Interview demo</a>
-    <a class="btn" href="#g-share">Before / after images</a>
+    <a class="btn pri" href="#g-hiring" data-i18n="j1">For hiring managers</a>
+    <a class="btn" href="#g-clients" data-i18n="j2">For your project</a>
+    <a class="btn" href="#g-interview" data-i18n="j3">Interview demo</a>
+    <a class="btn" href="#g-share" data-i18n="j4">Before / after images</a>
   </div>
   <div class="kpis">
-    <div class="kpi panel"><b>20+ h</b><span>a week back for site work<br>(conservative estimate)</span></div>
-    <div class="kpi panel"><b>250+</b><span>documents in a coded register<br>440+ revisions traced</span></div>
-    <div class="kpi panel"><b>~300</b><span>emails a week classified by rules</span></div>
-    <div class="kpi panel"><b>~150 h</b><span>of one-off documentation work done (≈4 weeks)</span></div>
+    <div class="kpi panel"><b>20+ h</b><span data-i18n="k1">a week back for site work<br>(conservative estimate)</span></div>
+    <div class="kpi panel"><b>250+</b><span data-i18n="k2">documents in a coded register<br>440+ revisions traced</span></div>
+    <div class="kpi panel"><b>~300</b><span data-i18n="k3">emails a week classified by rules</span></div>
+    <div class="kpi panel"><b>~150 h</b><span data-i18n="k4">of one-off documentation work done (≈4 weeks)</span></div>
   </div>
 </div></header>
 
 <section id="materials"><div class="wrap">
-  <div class="sh"><span class="no">01</span><h2>Materials by audience</h2></div>
-  <p class="intro">Everything is generated from the same registers, so the figures match across documents. Pick what fits you.</p>
+  <div class="sh"><span class="no">01</span><h2 data-i18n="s1">Materials by audience</h2></div>
+  <p class="intro" data-i18n="s1i">Everything is generated from the same registers, so the figures match across documents. Pick what fits you.</p>
   <div class="groups">
-    <article id="g-hiring" class="grp panel"><span class="n">A · HIRING MANAGERS AND RECRUITERS</span><h3>The method on one page</h3>
-      <p>Problem, solution, result and how it is controlled, with before/after minutes per task.</p>
+    <article id="g-hiring" class="grp panel"><span class="n" data-i18n="gA">A · HIRING MANAGERS AND RECRUITERS</span><h3 data-i18n="gAh">The method on one page</h3>
+      <p data-i18n="gAp">Problem, solution, result and how it is controlled, with before/after minutes per task.</p>
       <div class="btns">
-        <a class="btn pri" href="assets/dw/Nestor-Garcia-Case-Study-AI-Document-Control.pdf" target="_blank" rel="noopener">Case study <small>PDF · A4</small></a>
+        <a class="btn pri" href="assets/dw/Nestor-Garcia-Case-Study-AI-Document-Control.pdf" target="_blank" rel="noopener" data-i18n="bA1">Case study <small>PDF · A4</small></a>
         <a class="btn" href="./#cv">CV <small>portfolio</small></a>
       </div></article>
-    <article id="g-clients" class="grp panel"><span class="n">B · CLIENTS AND EPC PROJECTS</span><h3>How I would apply it on your project</h3>
-      <p>The plan from week 1, alongside your EDMS, for two types of project.</p>
+    <article id="g-clients" class="grp panel"><span class="n" data-i18n="gB">B · CLIENTS AND EPC PROJECTS</span><h3 data-i18n="gBh">How I would apply it on your project</h3>
+      <p data-i18n="gBp">The plan from week 1, alongside your EDMS, for two types of project.</p>
       <div class="btns">
-        <a class="btn pri" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Data-Centre.pdf" target="_blank" rel="noopener">Data centre <small>PDF · A4</small></a>
-        <a class="btn pri" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Refinery.pdf" target="_blank" rel="noopener">Refinery turnaround or revamp <small>PDF · A4</small></a>
+        <a class="btn pri" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Data-Centre.pdf" target="_blank" rel="noopener" data-i18n="bB1">Data centre <small>PDF · A4</small></a>
+        <a class="btn pri" href="assets/dw/Nestor-Garcia-How-I-Would-Apply-It-Refinery.pdf" target="_blank" rel="noopener" data-i18n="bB2">Refinery turnaround or revamp <small>PDF · A4</small></a>
       </div></article>
-    <article id="g-interview" class="grp panel"><span class="n">C · INTERVIEWS</span><h3>5-minute demo</h3>
-      <p>Three screens with anonymised data: register and revisions, procedure and one-page summary, daily dashboard. Keys 1, 2 and 3 change screen.</p>
+    <article id="g-interview" class="grp panel"><span class="n" data-i18n="gC">C · INTERVIEWS</span><h3 data-i18n="gCh">5-minute demo</h3>
+      <p data-i18n="gCp">Three screens with anonymised data: register and revisions, procedure and one-page summary, daily dashboard. Keys 1, 2 and 3 change screen.</p>
       <div class="btns">
-        <a class="btn pri" href="assets/dw/demo-5min.html" target="_blank" rel="noopener">Open the demo <small>opens in a new tab ↗</small></a>
-        <a class="btn" href="https://claude.ai/artifact/FES8wNNUQAeGznCYoPaidY" target="_blank" rel="noopener">Live session dashboard <small>↗</small></a>
+        <a class="btn pri" href="assets/dw/demo-5min.html" target="_blank" rel="noopener" data-i18n="bC1">Open the demo <small>opens in a new tab ↗</small></a>
+        <a class="btn" href="https://claude.ai/artifact/FES8wNNUQAeGznCYoPaidY" target="_blank" rel="noopener" data-i18n="bC2">Live session dashboard <small>↗</small></a>
       </div></article>
-    <article id="g-share" class="grp panel"><span class="n">D · SHARE</span><h3>Before / after images</h3>
-      <p>Three images in LinkedIn format, illustrative and anonymised.</p>
+    <article id="g-share" class="grp panel"><span class="n" data-i18n="gD">D · SHARE</span><h3 data-i18n="gDh">Before / after images</h3>
+      <p data-i18n="gDp">Three images in LinkedIn format, illustrative and anonymised.</p>
       <div class="btns">
-        <a class="btn" href="assets/dw/ba-1-inbox.webp" download>The inbox <small>image</small></a>
-        <a class="btn" href="assets/dw/ba-2-folders.webp" download>Project folders <small>image</small></a>
-        <a class="btn" href="assets/dw/ba-3-report.webp" download>The daily report <small>image</small></a>
+        <a class="btn" href="assets/dw/ba-1-inbox.webp" download data-i18n="bD1">The inbox <small>image</small></a>
+        <a class="btn" href="assets/dw/ba-2-folders.webp" download data-i18n="bD2">Project folders <small>image</small></a>
+        <a class="btn" href="assets/dw/ba-3-report.webp" download data-i18n="bD3">The daily report <small>image</small></a>
       </div></article>
   </div>
-  <p class="upd">Figures updated 17 Nov 2026 · generated from my registers</p>
+  <p class="upd" data-i18n="upd">Figures updated 17 Nov 2026 · generated from my registers</p>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sh"><span class="no">02</span><h2>Five blocks</h2></div>
-  <p class="intro">What I built and use every day. Figures come from my own registers.</p>
+  <div class="sh"><span class="no">02</span><h2 data-i18n="s2">Five blocks</h2></div>
+  <p class="intro" data-i18n="s2i">What I built and use every day. Figures come from my own registers.</p>
   <div class="cards">
-    <article class="card panel"><span class="n">1 · DOCUMENT CONTROL</span><h3>Coded register with revision history</h3><ul>
-      <li><b>12 document types</b> with their own codes, like a project MDR</li>
-      <li><b>250+ documents, 440+ revisions</b>, each with date, reason and author</li>
-      <li>Folder template and renaming by project; <b>18,910 documents indexed</b></li>
-      <li>MDR template and a document control procedure in English and Spanish</li></ul>
-      <div class="show">→ Rev. 0 = first issue · old versions to Obsolete</div></article>
-    <article class="card panel"><span class="n">2 · PROCEDURES</span><h3>Drafted with AI, reviewed by me</h3><ul>
-      <li><b>214 existing procedures</b> inventoried in 15 types</li>
-      <li><b>19 discipline procedures</b>: piping, welding, NDT, testing, flushing</li>
-      <li>Each with an <b>A4 one-page summary</b> for the crews</li>
-      <li>Technical review before issue: codes, hold points, site reality</li></ul>
-      <div class="show">→ 6 h of drafting becomes 30 min of review</div></article>
-    <article class="card panel"><span class="n">3 · EMAIL</span><h3>Triage by rules, every action logged</h3><ul>
-      <li><b>11 folders, 26 sub-labels, 20 filters</b></li>
-      <li><b>191 senders</b> mapped in an editable table</li>
-      <li>Daily summary; only what needs me stays in the inbox</li>
-      <li>Every move recorded with its own code · <b>758 emails classified</b> so far</li></ul>
-      <div class="show">→ 137 threads filed in one pass</div></article>
-    <article class="card panel"><span class="n">4 · REPORTS AND DATA</span><h3>A report that builds itself</h3><ul>
-      <li>About <b>160 fields recalculated every hour</b></li>
-      <li>SQLite database of projects, documents and tenders</li>
-      <li><b>91 vacancies analysed</b> with priority and risk flags</li>
-      <li>Dashboard that opens on a PC or a phone</li></ul>
-      <div class="show">→ 60 min by hand becomes 5 min of review</div></article>
-    <article class="card panel"><span class="n">5 · INFRASTRUCTURE</span><h3>Tools wired together</h3><ul>
-      <li>About <b>40 automations and skills</b> of my own</li>
-      <li>A control deck with <b>55+ one-touch actions</b>, also from the phone</li>
-      <li>Connected: email, cloud drive, Notion, n8n, a local knowledge base</li>
-      <li>Daily backup to a separate disk</li></ul>
-      <div class="show">→ sources → AI and automations → register, reports, dashboard</div></article>
+    <article class="card panel"><span class="n" data-i18n="c1n">1 · DOCUMENT CONTROL</span><h3 data-i18n="c1h">Coded register with revision history</h3><ul>
+      <li data-i18n="c1l1"><b>12 document types</b> with their own codes, like a project MDR</li>
+      <li data-i18n="c1l2"><b>250+ documents, 440+ revisions</b>, each with date, reason and author</li>
+      <li data-i18n="c1l3">Folder template and renaming by project; <b>18,910 documents indexed</b></li>
+      <li data-i18n="c1l4">MDR template and a document control procedure in English and Spanish</li></ul>
+      <div class="show" data-i18n="c1s">→ Rev. 0 = first issue · old versions to Obsolete</div></article>
+    <article class="card panel"><span class="n" data-i18n="c2n">2 · PROCEDURES</span><h3 data-i18n="c2h">Drafted with AI, reviewed by me</h3><ul>
+      <li data-i18n="c2l1"><b>214 existing procedures</b> inventoried in 15 types</li>
+      <li data-i18n="c2l2"><b>19 discipline procedures</b>: piping, welding, NDT, testing, flushing</li>
+      <li data-i18n="c2l3">Each with an <b>A4 one-page summary</b> for the crews</li>
+      <li data-i18n="c2l4">Technical review before issue: codes, hold points, site reality</li></ul>
+      <div class="show" data-i18n="c2s">→ 6 h of drafting becomes 30 min of review</div></article>
+    <article class="card panel"><span class="n" data-i18n="c3n">3 · EMAIL</span><h3 data-i18n="c3h">Triage by rules, every action logged</h3><ul>
+      <li data-i18n="c3l1"><b>11 folders, 26 sub-labels, 20 filters</b></li>
+      <li data-i18n="c3l2"><b>191 senders</b> mapped in an editable table</li>
+      <li data-i18n="c3l3">Daily summary; only what needs me stays in the inbox</li>
+      <li data-i18n="c3l4">Every move recorded with its own code · <b>758 emails classified</b> so far</li></ul>
+      <div class="show" data-i18n="c3s">→ 137 threads filed in one pass</div></article>
+    <article class="card panel"><span class="n" data-i18n="c4n">4 · REPORTS AND DATA</span><h3 data-i18n="c4h">A report that builds itself</h3><ul>
+      <li data-i18n="c4l1">About <b>160 fields recalculated every hour</b></li>
+      <li data-i18n="c4l2">SQLite database of projects, documents and tenders</li>
+      <li data-i18n="c4l3"><b>91 vacancies analysed</b> with priority and risk flags</li>
+      <li data-i18n="c4l4">Dashboard that opens on a PC or a phone</li></ul>
+      <div class="show" data-i18n="c4s">→ 60 min by hand becomes 5 min of review</div></article>
+    <article class="card panel"><span class="n" data-i18n="c5n">5 · INFRASTRUCTURE</span><h3 data-i18n="c5h">Tools wired together</h3><ul>
+      <li data-i18n="c5l1">About <b>40 automations and skills</b> of my own</li>
+      <li data-i18n="c5l2">A control deck with <b>55+ one-touch actions</b>, also from the phone</li>
+      <li data-i18n="c5l3">Connected: email, cloud drive, Notion, n8n, a local knowledge base</li>
+      <li data-i18n="c5l4">Daily backup to a separate disk</li></ul>
+      <div class="show" data-i18n="c5s">→ sources → AI and automations → register, reports, dashboard</div></article>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sh"><span class="no">03</span><h2>Minutes per task: by hand vs with AI</h2></div>
-  <p class="intro">From my own time log. "With AI" is my review time, not the time the AI takes to generate.</p>
+  <div class="sh"><span class="no">03</span><h2 data-i18n="s3">Minutes per task: by hand vs with AI</h2></div>
+  <p class="intro" data-i18n="s3i">From my own time log. "With AI" is my review time, not the time the AI takes to generate.</p>
   <div class="chart panel">
-    <div class="legend"><span><i style="background:#4a5d74"></i>By hand</span><span><i style="background:var(--ok)"></i>With AI (my review)</span></div>
+    <div class="legend"><span><i style="background:#4a5d74"></i><b data-i18n="lg1" style="font-weight:400">By hand</b></span><span><i style="background:var(--ok)"></i><b data-i18n="lg2" style="font-weight:400">With AI (my review)</b></span></div>
     <div class="row"><span class="tk">Discipline procedure</span><div class="bars"><div class="b h" style="width:100.0%"></div><div class="b a" style="width:8.3%"></div></div><span class="v">360<br><b>30</b></span></div>
     <div class="row"><span class="tk">One-page visual summary</span><div class="bars"><div class="b h" style="width:33.3%"></div><div class="b a" style="width:2.8%"></div></div><span class="v">120<br><b>10</b></span></div>
     <div class="row"><span class="tk">Daily progress report</span><div class="bars"><div class="b h" style="width:16.7%"></div><div class="b a" style="width:1.4%"></div></div><span class="v">60<br><b>5</b></span></div>
@@ -198,32 +207,51 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="row"><span class="tk">Tender or vacancy analysis</span><div class="bars"><div class="b h" style="width:8.3%"></div><div class="b a" style="width:1.4%"></div></div><span class="v">30<br><b>5</b></span></div>
     <div class="row"><span class="tk">Reply to a vendor or recruiter</span><div class="bars"><div class="b h" style="width:4.2%"></div><div class="b a" style="width:0.6%"></div></div><span class="v">15<br><b>2</b></span></div>
   </div>
-  <p class="note">Weekly saving: 20+ h is a conservative figure that counts only tasks I would do by hand in a normal project week. One-off work (a batch of 19 procedures, indexing 18,910 documents) is counted separately. Estimates, not audited.</p>
+  <p class="note" data-i18n="note">Weekly saving: 20+ h is a conservative figure that counts only tasks I would do by hand in a normal project week. One-off work (a batch of 19 procedures, indexing 18,910 documents) is counted separately. Estimates, not audited.</p>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sh"><span class="no">04</span><h2>Before / after</h2></div>
-  <p class="intro">Illustrative and anonymised. No client data.</p>
+  <div class="sh"><span class="no">04</span><h2 data-i18n="s4">Before / after</h2></div>
+  <p class="intro" data-i18n="s4i">Illustrative and anonymised. No client data.</p>
   <div class="ba">
-    <figure class="panel"><img src="assets/dw/ba-1-inbox.webp" alt="Before and after: the inbox. Before, ~300 emails a week in one list sorted by hand. After, 11 folders and 20 filters, 137 threads filed in one pass and a daily summary." width="1080" height="1350" loading="lazy"><figcaption>The inbox <a href="assets/dw/ba-1-inbox.webp" download>Download</a></figcaption></figure>
-    <figure class="panel"><img src="assets/dw/ba-2-folders.webp" alt="Before and after: project folders. Before, unclear versions such as final final.pdf. After, a folder template and a register with code, revision, date, reason and author." width="1080" height="1350" loading="lazy"><figcaption>Project folders <a href="assets/dw/ba-2-folders.webp" download>Download</a></figcaption></figure>
-    <figure class="panel"><img src="assets/dw/ba-3-report.webp" alt="Before and after: the daily report. Before, 60 minutes a day by hand. After, about 160 fields recalculated every hour and 5 minutes of review." width="1080" height="1350" loading="lazy"><figcaption>The daily report <a href="assets/dw/ba-3-report.webp" download>Download</a></figcaption></figure>
+    <figure class="panel"><img src="assets/dw/ba-1-inbox.webp" data-i18n-alt="a1" alt="Before and after: the inbox. Before, ~300 emails a week in one list sorted by hand. After, 11 folders and 20 filters, 137 threads filed in one pass and a daily summary." width="1080" height="1350" loading="lazy"><figcaption data-i18n="f1">The inbox <a href="assets/dw/ba-1-inbox.webp" download>Download</a></figcaption></figure>
+    <figure class="panel"><img src="assets/dw/ba-2-folders.webp" data-i18n-alt="a2" alt="Before and after: project folders. Before, unclear versions such as final final.pdf. After, a folder template and a register with code, revision, date, reason and author." width="1080" height="1350" loading="lazy"><figcaption data-i18n="f2">Project folders <a href="assets/dw/ba-2-folders.webp" download>Download</a></figcaption></figure>
+    <figure class="panel"><img src="assets/dw/ba-3-report.webp" data-i18n-alt="a3" alt="Before and after: the daily report. Before, 60 minutes a day by hand. After, about 160 fields recalculated every hour and 5 minutes of review." width="1080" height="1350" loading="lazy"><figcaption data-i18n="f3">The daily report <a href="assets/dw/ba-3-report.webp" download>Download</a></figcaption></figure>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sh"><span class="no">05</span><h2>How the result is controlled</h2></div>
-  <p class="intro">Automation is only useful on a project if every result can be traced and checked.</p>
+  <div class="sh"><span class="no">05</span><h2 data-i18n="s5">How the result is controlled</h2></div>
+  <p class="intro" data-i18n="s5i">Automation is only useful on a project if every result can be traced and checked.</p>
   <div class="ctrl">
-    <div class="panel"><b>One code per document</b>and one row per revision: Rev., date, reason, author.</div>
-    <div class="panel"><b>Every email action logged</b>with its own code, so any move can be traced.</div>
-    <div class="panel"><b>Originals never overwritten</b>new versions alongside, old ones to an Obsolete folder.</div>
-    <div class="panel"><b>AI drafts, I approve</b>technical responsibility stays with the engineer.</div>
-    <div class="panel"><b>Client systems stay the master</b>works alongside Aconex, Procore or the client's EDMS.</div>
-    <div class="panel"><b>Daily backup, no client data published</b>everything shown here is my own or anonymised.</div>
+    <div class="panel" data-i18n="ct1"><b>One code per document</b>and one row per revision: Rev., date, reason, author.</div>
+    <div class="panel" data-i18n="ct2"><b>Every email action logged</b>with its own code, so any move can be traced.</div>
+    <div class="panel" data-i18n="ct3"><b>Originals never overwritten</b>new versions alongside, old ones to an Obsolete folder.</div>
+    <div class="panel" data-i18n="ct4"><b>AI drafts, I approve</b>technical responsibility stays with the engineer.</div>
+    <div class="panel" data-i18n="ct5"><b>Client systems stay the master</b>works alongside Aconex, Procore or the client's EDMS.</div>
+    <div class="panel" data-i18n="ct6"><b>Daily backup, no client data published</b>everything shown here is my own or anonymised.</div>
   </div>
 </div></section>
 
-<footer><div class="wrap"><span>© Néstor García · Figures from my own registers, 17 Nov 2026; time savings are my own estimates.</span><span><a href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/">LinkedIn</a> · <a href="./">Portfolio</a> · <a href="./#cv">CV</a></span></div></footer>
+<footer><div class="wrap"><span data-i18n="foot">© Néstor García · Figures from my own registers, 17 Nov 2026; time savings are my own estimates.</span><span><a href="https://www.linkedin.com/in/ngarcia-mechanical-construction-manager/">LinkedIn</a> · <a href="./">Portfolio</a> · <a href="./#cv">CV</a></span></div></footer>
+<script>
+(function(){
+var ES={"back":"← Volver al portfolio","hero_lbl":"Flujo de trabajo digital · Nov 2026","h1":"Control documental,<br>correo e informes con IA","hero_p":"En un proyecto de construcción lo difícil no es el volumen de documentos, sino tenerlos bajo control. Uso IA y automatización para el trabajo repetitivo, y me quedo con la revisión, las decisiones y la responsabilidad técnica.","j1":"Para responsables de contratación","j2":"Para tu proyecto","j3":"Demo para entrevistas","j4":"Imágenes antes / después","k1":"a la semana para la obra<br>(estimación conservadora)","k2":"documentos en un registro codificado<br>440+ revisiones trazadas","k3":"correos a la semana clasificados por reglas","k4":"de trabajo documental puntual ya hecho (≈4 semanas)","s1":"Materiales según destinatario","s1i":"Todo se genera desde los mismos registros, así que las cifras coinciden en todos los documentos. Elige lo que te encaje.","gA":"A · RESPONSABLES DE CONTRATACIÓN Y RECRUITERS","gAh":"El método en una página","gAp":"Problema, solución, resultado y cómo se controla, con los minutos por tarea antes y después.","bA1":"Caso de estudio <small>PDF · A4 · inglés</small>","gB":"B · CLIENTES Y PROYECTOS EPC","gBh":"Cómo lo aplicaría en tu proyecto","gBp":"El plan desde la semana 1, junto a tu EDMS, para dos tipos de proyecto.","bB1":"Centro de datos <small>PDF · A4 · inglés</small>","bB2":"Parada o revamp de refinería <small>PDF · A4 · inglés</small>","gC":"C · ENTREVISTAS","gCh":"Demo de 5 minutos","gCp":"Tres pantallas con datos anonimizados: registro y revisiones, procedimiento y resumen de una página, dashboard diario. Las teclas 1, 2 y 3 cambian de pantalla. La demo está en inglés.","bC1":"Abrir la demo <small>se abre en otra pestaña ↗</small>","bC2":"Dashboard de sesión en vivo <small>↗</small>","gD":"D · COMPARTIR","gDh":"Imágenes antes / después","gDp":"Tres imágenes en formato LinkedIn, ilustrativas y anonimizadas (en inglés).","bD1":"La bandeja de entrada <small>imagen</small>","bD2":"Carpetas de proyecto <small>imagen</small>","bD3":"El parte diario <small>imagen</small>","upd":"Cifras actualizadas el 17 Nov 2026 · generadas desde mis registros","s2":"Cinco bloques","s2i":"Lo que he montado y uso a diario. Las cifras salen de mis propios registros.","c1n":"1 · CONTROL DOCUMENTAL","c1h":"Registro codificado con historial de revisiones","c1l1":"<b>12 tipos de documento</b> con código propio, como el MDR de un proyecto","c1l2":"<b>250+ documentos, 440+ revisiones</b>, cada una con fecha, motivo y autor","c1l3":"Plantilla de carpetas y renombrado por proyecto; <b>18,910 documentos indexados</b>","c1l4":"Plantilla de MDR y procedimiento de control documental en inglés y español","c1s":"→ Rev. 0 = primera emisión · versiones antiguas a Obsoleto","c2n":"2 · PROCEDIMIENTOS","c2h":"Redactados con IA, revisados por mí","c2l1":"<b>214 procedimientos existentes</b> inventariados en 15 tipos","c2l2":"<b>19 procedimientos por disciplina</b>: tuberías, soldadura, END, pruebas, flushing","c2l3":"Cada uno con un <b>resumen A4 de una página</b> para las cuadrillas","c2l4":"Revisión técnica antes de emitir: normas, puntos de espera, realidad de obra","c2s":"→ 6 h de redacción pasan a 30 min de revisión","c3n":"3 · CORREO","c3h":"Clasificación por reglas, cada acción registrada","c3l1":"<b>11 carpetas, 26 subetiquetas, 20 filtros</b>","c3l2":"<b>191 remitentes</b> en una tabla editable","c3l3":"Resumen diario; en la bandeja solo queda lo que me necesita","c3l4":"Cada movimiento registrado con su propio código · <b>758 correos clasificados</b> hasta ahora","c3s":"→ 137 hilos archivados en una pasada","c4n":"4 · INFORMES Y DATOS","c4h":"Un informe que se hace solo","c4l1":"Unos <b>160 campos recalculados cada hora</b>","c4l2":"Base de datos SQLite de proyectos, documentos y licitaciones","c4l3":"<b>91 vacantes analizadas</b> con prioridad y alertas de riesgo","c4l4":"Dashboard que se abre en el PC o en el móvil","c4s":"→ 60 min a mano pasan a 5 min de revisión","c5n":"5 · INFRAESTRUCTURA","c5h":"Herramientas conectadas entre sí","c5l1":"Unas <b>40 automatizaciones y skills</b> propias","c5l2":"Una botonera con <b>55+ acciones de un toque</b>, también desde el móvil","c5l3":"Conectados: correo, nube, Notion, n8n y una base de conocimiento local","c5l4":"Copia de seguridad diaria en un disco aparte","c5s":"→ fuentes → IA y automatizaciones → registro, informes, dashboard","s3":"Minutos por tarea: a mano frente a con IA","s3i":"De mi propio registro de tiempos. «Con IA» es mi tiempo de revisión, no el que tarda la IA en generar.","lg1":"A mano","lg2":"Con IA (mi revisión)","note":"Ahorro semanal: 20+ h es una cifra conservadora que solo cuenta tareas que haría a mano en una semana normal de proyecto. El trabajo puntual (una tanda de 19 procedimientos, indexar 18,910 documentos) se cuenta aparte. Estimaciones, no auditadas.","s4":"Antes / después","s4i":"Ilustrativo y anonimizado. Sin datos de clientes. Imágenes en inglés.","a1":"Antes y después: la bandeja de entrada. Antes, ~300 correos a la semana en una sola lista ordenada a mano. Después, 11 carpetas y 20 filtros, 137 hilos archivados en una pasada y un resumen diario.","a2":"Antes y después: carpetas de proyecto. Antes, versiones confusas como final final.pdf. Después, una plantilla de carpetas y un registro con código, revisión, fecha, motivo y autor.","a3":"Antes y después: el parte diario. Antes, 60 minutos al día a mano. Después, unos 160 campos recalculados cada hora y 5 minutos de revisión.","f1":"La bandeja de entrada <a href=\"assets/dw/ba-1-inbox.webp\" download>Descargar</a>","f2":"Carpetas de proyecto <a href=\"assets/dw/ba-2-folders.webp\" download>Descargar</a>","f3":"El parte diario <a href=\"assets/dw/ba-3-report.webp\" download>Descargar</a>","s5":"Cómo se controla el resultado","s5i":"La automatización solo sirve en un proyecto si cada resultado se puede trazar y comprobar.","ct1":"<b>Un código por documento</b>y una fila por revisión: Rev., fecha, motivo, autor.","ct2":"<b>Cada acción de correo registrada</b>con su propio código, para poder trazar cualquier movimiento.","ct3":"<b>Los originales nunca se sobrescriben</b>las versiones nuevas van al lado y las antiguas a una carpeta Obsoleto.","ct4":"<b>La IA redacta, yo apruebo</b>la responsabilidad técnica sigue siendo del ingeniero.","ct5":"<b>Los sistemas del cliente siguen mandando</b>funciona junto a Aconex, Procore o el EDMS del cliente.","ct6":"<b>Copia diaria, sin datos de clientes publicados</b>todo lo que se ve aquí es mío o está anonimizado.","foot":"© Néstor García · Cifras de mis propios registros, 17 Nov 2026; los ahorros de tiempo son estimaciones mías.","_title":"Flujo de trabajo digital · Néstor García · Mechanical Construction Manager"};
+var TK={"Discipline procedure":"Procedimiento por disciplina","One-page visual summary":"Resumen visual de una página","Daily progress report":"Parte diario de avance","Tailored CV or cover letter":"CV o carta de presentación a medida","Tender or vacancy analysis":"Análisis de licitación o vacante","Reply to a vendor or recruiter":"Respuesta a un proveedor o recruiter"};
+var FL={"es":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#c60b1e\"/><rect y=\"5\" width=\"30\" height=\"10\" fill=\"#ffc400\"/></svg>","gb":"<svg viewBox=\"0 0 60 30\"><clipPath id=\"fgb\"><path d=\"M0,0 v30 h60 v-30 z\"/></clipPath><clipPath id=\"fgt\"><path d=\"M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z\"/></clipPath><g clip-path=\"url(#fgb)\"><path d=\"M0,0 v30 h60 v-30 z\" fill=\"#012169\"/><path d=\"M0,0 L60,30 M60,0 L0,30\" stroke=\"#fff\" stroke-width=\"6\"/><path d=\"M0,0 L60,30 M60,0 L0,30\" clip-path=\"url(#fgt)\" stroke=\"#C8102E\" stroke-width=\"4\"/><path d=\"M30,0 v30 M0,15 h60\" stroke=\"#fff\" stroke-width=\"10\"/><path d=\"M30,0 v30 M0,15 h60\" stroke=\"#C8102E\" stroke-width=\"6\"/></g></svg>"};
+var q=function(s){return [].slice.call(document.querySelectorAll(s));};
+q('.flag[data-f]').forEach(function(e){e.innerHTML=FL[e.getAttribute('data-f')]||'';});
+var els=q('[data-i18n]'),alts=q('[data-i18n-alt]'),tks=q('.chart .tk'),T0=document.title;
+els.forEach(function(e){e._en=e.innerHTML;});alts.forEach(function(e){e._en=e.alt;});tks.forEach(function(e){e._en=e.textContent;});
+function apply(l){var es=l==='es';document.documentElement.lang=es?'es':'en';document.title=es?ES._title:T0;
+ els.forEach(function(e){var k=e.getAttribute('data-i18n');e.innerHTML=(es&&ES[k]!=null)?ES[k]:e._en;});
+ alts.forEach(function(e){var k=e.getAttribute('data-i18n-alt');e.alt=(es&&ES[k])?ES[k]:e._en;});
+ tks.forEach(function(e){e.textContent=(es&&TK[e._en])?TK[e._en]:e._en;});
+ q('.lb[data-l]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-l')===(es?'es':'en')));});}
+var L='en';try{if(localStorage.getItem('ng-lang')==='es')L='es';}catch(e){}
+q('.lb[data-l]').forEach(function(b){b.addEventListener('click',function(){L=b.getAttribute('data-l');try{localStorage.setItem('ng-lang',L);}catch(e){}apply(L);});});
+apply(L);
+})();
+</script>
 </body>
 </html>
